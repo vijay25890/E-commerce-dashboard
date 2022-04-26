@@ -22,7 +22,10 @@ const Nav = () => {
               Logout
             </Link>
           ) : (
-            <Link to="/signup">Sign Up</Link>
+            <>
+              <Link to="/signup">Sign Up</Link>
+              <Link to="/login">Login</Link>
+            </>
           )}
         </li>
       </ul>
