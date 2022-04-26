@@ -3,6 +3,7 @@ import Nav from "./components/Nav";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import SignUp from "./components/SignUp";
+import PrivateComponent from "./components/PrivateComponent";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <BrowserRouter>
         <Nav />
         <Routes>
+          <Route element={<PrivateComponent />}></Route>
           <Route path="/" element={<h1>Product Listing</h1>}></Route>
           <Route path="/add" element={<h1>Add Product</h1>}></Route>
           <Route path="/update" element={<h1>Update Product</h1>}></Route>
