@@ -8,8 +8,8 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const suth = localStorage.getItem("user");
-    if (suth) {
+    const auth = localStorage.getItem("user");
+    if (auth) {
       navigate("/");
     }
   }, []);

@@ -1,8 +1,8 @@
 const express = require("express");
 const User = require("./db/User");
+const Product = require("./db/Product");
 const cors = require("cors");
 require("./db/config");
-require("./db/User");
 
 const app = express();
 app.use(express.json());
@@ -24,6 +24,35 @@ app.post("/login", async (req, res) => {
     }
   } else {
     res.send({ Result: "No user found" });
+  }
+});
+
+app.post("/add-product", async (req, res) => {
+  const product = new Product(req.body);
+  const result = await product.save();
+  res.send(result);
+});
+
+app.get("/products", async (req, res) => {
+  const products = await Product.find();
+  if (products.length > 0) {
+    res.send(products);
+  } else {
+    res.send({ result: "No data found" });
+  }
+});
+
+app.delete("/product/:id", async (req, res) => {
+  const result = await Product.deleteOne({ _id: req.params.id });
+  res.send(result);
+});
+
+app.get("/product/:id", async (req, res) => {
+  const result = await Product.findOne({ _id: req.params.id });
+  if (result) {
+    res.send(result);
+  } else {
+    res.send({ result: "not found" });
   }
 });
 
