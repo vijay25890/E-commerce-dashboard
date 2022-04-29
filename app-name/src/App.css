@@ -67,3 +67,9 @@
 .product-list ul {
   margin: 0;
 }
+.search {
+  margin-bottom: 10px;
+  width: 35%;
+  height: 30px;
+  border: 1.5px solid skyblue;
+}
